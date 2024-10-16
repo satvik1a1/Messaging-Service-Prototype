@@ -25,6 +25,7 @@ const page = async ({}) => {
 
       const lastMessage = lastMessageRaw ? (JSON.parse(lastMessageRaw) as Message) : "";
 
+
       return {
         ...friend,
         lastMessage,

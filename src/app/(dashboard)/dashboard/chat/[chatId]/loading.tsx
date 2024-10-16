@@ -5,7 +5,7 @@ interface loadingProps {}
 
 const loading: FC<loadingProps> = ({}) => {
   return (
-<div className='flex flex-col h-full items-center'>
+    <div className='flex flex-col h-full items-center'>
       <Skeleton className='mb-4' height={40} width={400} />
       {/* chat messages */}
       <div className='flex-1 max-h-full overflow-y-scroll w-full'>
@@ -24,15 +24,12 @@ const loading: FC<loadingProps> = ({}) => {
                       </div>
                     </div>
                   </div>
-                  <div className='col-start-6 col-end-13 p-3 rounded-lg'>
-                    <div className='flex items-center justify-start flex-row-reverse'>
-                      <div className='relative h-10 w-10'>
-                        <Skeleton width={40} height={40} borderRadius={999} />
-                      </div>
-                      <div className='relative mr-3 text-sm bg-indigo-100 text-black py-2 px-4 border border-gray-100 rounded-xl'>
-                        <Skeleton className='ml-2' width={150} height={20} />
-                      </div>
-                    </div>
+
+                  {/* Skeletons for buttons */}
+                  <div className='flex space-x-2 mb-4'>
+                    <Skeleton width={40} height={30} className='rounded' />
+                    <Skeleton width={40} height={30} className='rounded' />
+                    <Skeleton width={40} height={30} className='rounded' />
                   </div>
 
                   {/* my messages */}
@@ -46,6 +43,7 @@ const loading: FC<loadingProps> = ({}) => {
                       </div>
                     </div>
                   </div>
+
                   <div className='col-start-6 col-end-13 p-3 rounded-lg'>
                     <div className='flex items-center justify-start flex-row-reverse'>
                       <div className='relative h-10 w-10'>
@@ -56,6 +54,7 @@ const loading: FC<loadingProps> = ({}) => {
                       </div>
                     </div>
                   </div>
+
                   <div className='col-start-1 col-end-8 p-3 rounded-lg'>
                     <div className='flex flex-row items-center'>
                       <div className='relative h-10 w-10'>
@@ -72,14 +71,6 @@ const loading: FC<loadingProps> = ({}) => {
           </div>
         </div>
       </div>
-
-      {/* chat input */}
-
-      {/* <ChatInput
-        chatPartner={chatPartner}
-        img={session.user.image}
-        chatId={chatId}
-      /> */}
     </div>
   )
 }

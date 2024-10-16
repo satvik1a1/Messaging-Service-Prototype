@@ -7,7 +7,7 @@ import { getServerSession } from 'next-auth'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-// The following generateMetadata functiion was written after the video and is purely optional
+// The following generateMetadata function was written after the video and is purely optional
 export async function generateMetadata({
   params,
 }: {
@@ -55,7 +55,7 @@ async function getChatMessages(chatId: string) {
   }
 }
 
-const page = async ({ params }: PageProps) => {
+const Page = async ({ params }: PageProps) => {
   const { chatId } = params
   const session = await getServerSession(authOptions)
   if (!session) notFound()
@@ -69,7 +69,6 @@ const page = async ({ params }: PageProps) => {
   }
 
   const chatPartnerId = user.id === userId1 ? userId2 : userId1
-  // new
 
   const chatPartnerRaw = (await fetchRedis(
     'get',
@@ -104,6 +103,31 @@ const page = async ({ params }: PageProps) => {
             <span className='text-sm text-gray-600'>{chatPartner.email}</span>
           </div>
         </div>
+
+        {/* Buttons for call, video call, and options */}
+        <div className='flex space-x-2'>
+          <button className='call-btn bg-white text-white px-2 py-1 rounded-full'>
+            <img
+              src='https://www.svgrepo.com/show/429091/call-communication-device.svg'
+              alt='Call'
+              className='w-6 h-6'
+            />
+          </button>
+          <button className='video-call-btn g-white text-white px-2 py-1 rounded-full'>
+            <img
+              src='https://www.svgrepo.com/show/408755/video-video-call-camera-record.svg'
+              alt='Video Call'
+              className='w-6 h-6'
+            />
+          </button>
+          <button className='more-options-btn bg-white text-white px-2 py-1 rounded-full'>
+            <img
+              src='https://www.svgrepo.com/show/345223/three-dots-vertical.svg'
+              alt='More Options'
+              className='w-6 h-6'
+            />
+          </button>
+        </div>
       </div>
 
       <Messages
@@ -118,4 +142,4 @@ const page = async ({ params }: PageProps) => {
   )
 }
 
-export default page
+export default Page

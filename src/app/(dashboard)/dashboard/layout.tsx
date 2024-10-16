@@ -37,19 +37,19 @@ const groupChats = [
     id: 1,
     name: 'Tech Enthusiasts',
     href: '/dashboard/group/tech-enthusiasts',
-    icon: 'Users',
+    icon: 'https://www.svgrepo.com/show/86044/group.svg', // Replace with your actual URL
   },
   {
     id: 2,
     name: 'Weekend Warriors',
     href: '/dashboard/group/weekend-warriors',
-    icon: 'Users',
+    icon: 'https://www.svgrepo.com/show/86044/group.svg', // Replace with your actual URL
   },
   {
     id: 3,
     name: 'Music Lovers',
     href: '/dashboard/group/music-lovers',
-    icon: 'MusicNote',
+    icon: 'https://www.svgrepo.com/show/86044/group.svg', // Replace with your actual URL
   },
 ]
 
@@ -80,7 +80,7 @@ const Layout = async ({ children }: LayoutProps) => {
 
       <div className='hidden md:flex h-full w-full max-w-xs grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6'>
         <Link href='/dashboard' className='flex h-16 shrink-0 items-center'>
-          <Icons.Logo className='h-8 w-auto text-indigo-600' />
+          <img src="https://cdn.prod.website-files.com/651ed575e790fe18171962d9/651ed92b434f3653eb451806_logo.svg" alt="My custom logo" className="h-8 w-auto" />
         </Link>
 
         {friends.length > 0 ? (
@@ -138,6 +138,7 @@ const Layout = async ({ children }: LayoutProps) => {
                         href={group.href}
                         className='text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-3 rounded-md p-2 text-sm leading-6 font-semibold'>
                         <span className='text-gray-400 border-gray-200 group-hover:border-indigo-600 group-hover:text-indigo-600 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white'>
+                          <img src={group.icon} alt={`${group.name} icon`} className="h-6 w-6" />
                         </span>
 
                         <span className='truncate'>{group.name}</span>
