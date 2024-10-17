@@ -1,3 +1,7 @@
+NAME: SATVIK PRATAP SINGH
+COLLEGE: IIT KANPUR
+DEPARTMENT: CHEMICAL ENGINEERING
+
 # Messaging App - A full-stack realtime messaging chat application
 
 ## Features
